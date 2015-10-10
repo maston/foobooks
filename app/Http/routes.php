@@ -1,5 +1,5 @@
 <?php
-
+// use \Rych\Random\Random;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -40,7 +40,17 @@ Route::post('/books/create', 'BookController@postCreate');
 // 	print_r($input);
 // });
 
-// Route::get('/practice', function() {
-// 	echo App::environment();
-// });
+Route::get('/practice', function() {
+
+    $random = new Random();
+    return $random->getRandomString(8);
+
+});
+
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
+
+
 ?>
