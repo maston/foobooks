@@ -12,24 +12,34 @@ class BookController extends Controller {
 	// Responds to requests for GET /books
 
 	public function getIndex() {
-		return 'List all the books.';
+	   $listData = array();
+        array_push($listData,'Harry Potter');
+        array_push($listData,'Charlie and the Chocolate Factory');
+        array_push($listData,'Cat in the Hat');
+        array_push($listData,'Great Expectations');
+        array_push($listData,'The Fault of Our Stars');
+
+        return View('books.index')
+            ->with('listData', $listData);
 	}
 
 	// Responds to requests for GET /books/show/{id}
-	public function getShow($title) {
-		return 'Show book: '.$title;
+	public function getShow($title=null) {
+		// return 'Show book: '.$title;
+        return view('books.show')->with('title', $title);
 	}
 
     /**
      * Responds to requests to GET /books/create
      */
     public function getCreate() {
-	    $view  = '<form method="POST">';
-	    $view .= csrf_field(); # This will be explained more later
-	    $view .= 'Title: <input type="text" name="title">';
-	    $view .= '<input type="submit">';
-	    $view .= '</form>';
-	    return $view;
+	    // $view  = '<form method="POST">';
+	    // $view .= csrf_field(); # This will be explained more later
+	    // $view .= 'Title: <input type="text" name="title">';
+	    // $view .= '<input type="submit">';
+	    // $view .= '</form>';
+	    // return $view;
+        return view('books.create');
     }
 
     /**
