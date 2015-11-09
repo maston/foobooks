@@ -21,6 +21,7 @@ Route::get('/books/create', 'BookController@getCreate');
 Route::post('/books/create', 'BookController@postCreate');
 
 
+// Route::controller('/practice','PracticeController');
 
 // Route::get('/books/{category}', function($category){
 // 	return 'Here are all the books in the category of '.$category;
@@ -39,13 +40,16 @@ Route::post('/books/create', 'BookController@postCreate');
 // 	$input = Input::all();
 // 	print_r($input);
 // });
+Route::get('/practice/example1', 'PracticeController@getExample1');
+Route::get('/practice/example2', 'PracticeController@getExample2');
+Route::get('/practice/example3', 'PracticeController@getExample3');
+// Route::get('/practice', function() {
 
-Route::get('/practice', function() {
+//     // $random = new Random();
+//     // return $random->getRandomString(8);
+//     return "worked";
 
-    $random = new Random();
-    return $random->getRandomString(8);
-
-});
+// });
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
