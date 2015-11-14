@@ -17,13 +17,17 @@ such as a page specific styesheets.
 
 
 @section('content')
-            <ul>
-              @foreach($listData as $data)
-                <li>
-                  {{ $data }}
-                </li>
-              @endforeach
-            </ul>
+
+    <h1>All Books</h1>
+
+    @foreach($books as $book)
+        <div>
+            <h2>{{ $book->title }}</h2>
+            <a href='/books/edit/{{$book->id}}'>Edit</a><br>
+            <img src='{{ $book->cover }}'>
+        </div>
+    @endforeach
+
 @stop
 
 
